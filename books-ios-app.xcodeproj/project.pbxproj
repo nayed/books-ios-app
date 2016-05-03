@@ -28,10 +28,10 @@
 		7DBABC561CD8CEFA0099E68B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DBABC591CD8CEFA0099E68B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DBABC5B1CD8CEFA0099E68B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7DBABC641CD8D1A00099E68B /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		7DBABC651CD8D1A00099E68B /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
-		7DBABC661CD8D1A00099E68B /* Author+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Author+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		7DBABC671CD8D1A00099E68B /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		7DBABC641CD8D1A00099E68B /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataProperties.swift"; path = "../Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7DBABC651CD8D1A00099E68B /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Book.swift; path = ../Book.swift; sourceTree = "<group>"; };
+		7DBABC661CD8D1A00099E68B /* Author+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Author+CoreDataProperties.swift"; path = "../Author+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7DBABC671CD8D1A00099E68B /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Author.swift; path = ../Author.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,10 +48,6 @@
 		7DBABC401CD8CEFA0099E68B = {
 			isa = PBXGroup;
 			children = (
-				7DBABC641CD8D1A00099E68B /* Book+CoreDataProperties.swift */,
-				7DBABC651CD8D1A00099E68B /* Book.swift */,
-				7DBABC661CD8D1A00099E68B /* Author+CoreDataProperties.swift */,
-				7DBABC671CD8D1A00099E68B /* Author.swift */,
 				7DBABC4B1CD8CEFA0099E68B /* books-ios-app */,
 				7DBABC4A1CD8CEFA0099E68B /* Products */,
 			);
@@ -99,6 +95,10 @@
 		7DBABC631CD8CFA10099E68B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7DBABC641CD8D1A00099E68B /* Book+CoreDataProperties.swift */,
+				7DBABC651CD8D1A00099E68B /* Book.swift */,
+				7DBABC661CD8D1A00099E68B /* Author+CoreDataProperties.swift */,
+				7DBABC671CD8D1A00099E68B /* Author.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";

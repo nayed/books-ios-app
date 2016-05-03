@@ -7,11 +7,36 @@
 //
 
 import UIKit
+import CoreData
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var manageObjectContext: NSManagedObjectContext!
+    
+    @IBOutlet weak var addBook: UIBarButtonItem!
+    @IBOutlet weak var myTable: UITableView!
+    
+    @IBAction func addNewBook(sender: AnyObject) {
+        let book: Book = NSEntityDescription.insertNewObjectForEntityForName(
+            "Book",
+            inManagedObjectContext: manageObjectContext
+            ) as! Book
+        
+        book.title = "Book " + String(loadBooks().count)
+        
+        do {
+            try manageObjectContext!.save()
+        } catch let error as NSError {
+            NSLog("Error: %@", error)
+        }
+        
+        myTable.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        manageObjectContext = appDelegate.managedObjectContext as NSManagedObjectContext
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -19,7 +44,33 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return loadBooks().count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell?
+        let book = loadBooks()[indexPath.row] as! Book
+        cell?.textLabel!.text = book.title
+        return cell!
+    }
+    
+    func loadBooks() -> [AnyObject] {
+        let fetchRequest = NSFetchRequest(entityName: "Book")
+        var result = [AnyObject]()
+        
+        do {
+            result = try manageObjectContext.executeFetchRequest(fetchRequest)
+        } catch let error as NSError {
+            NSLog("Error: %@", error)
+        }
+        return result
+    }
 
 }
 

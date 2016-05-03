@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DBABC3D1CD889030099E68B /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBABC3C1CD889030099E68B /* Book.swift */; };
+		7DBABC3F1CD889460099E68B /* Bookstore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBABC3E1CD889460099E68B /* Bookstore.swift */; };
 		7DFF91C81CD79CC900E8DA98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF91C71CD79CC900E8DA98 /* AppDelegate.swift */; };
 		7DFF91CA1CD79CC900E8DA98 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF91C91CD79CC900E8DA98 /* MasterViewController.swift */; };
 		7DFF91CC1CD79CC900E8DA98 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF91CB1CD79CC900E8DA98 /* DetailViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7DBABC3C1CD889030099E68B /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		7DBABC3E1CD889460099E68B /* Bookstore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookstore.swift; sourceTree = "<group>"; };
 		7DFF91C41CD79CC900E8DA98 /* books-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "books-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DFF91C71CD79CC900E8DA98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DFF91C91CD79CC900E8DA98 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +41,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7DBABC381CD888190099E68B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7DFF91CB1CD79CC900E8DA98 /* DetailViewController.swift */,
+				7DFF91C91CD79CC900E8DA98 /* MasterViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		7DBABC391CD888260099E68B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7DBABC3C1CD889030099E68B /* Book.swift */,
+				7DBABC3E1CD889460099E68B /* Bookstore.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7DBABC3A1CD8882C0099E68B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7DFF91D21CD79CC900E8DA98 /* LaunchScreen.storyboard */,
+				7DFF91CD1CD79CC900E8DA98 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		7DBABC3B1CD888360099E68B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7DFF91D01CD79CC900E8DA98 /* Assets.xcassets */,
+				7DFF91D51CD79CC900E8DA98 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		7DFF91BB1CD79CC900E8DA98 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +96,11 @@
 		7DFF91C61CD79CC900E8DA98 /* books-ios-app */ = {
 			isa = PBXGroup;
 			children = (
+				7DBABC3B1CD888360099E68B /* Resources */,
+				7DBABC3A1CD8882C0099E68B /* Views */,
+				7DBABC391CD888260099E68B /* Models */,
+				7DBABC381CD888190099E68B /* Controllers */,
 				7DFF91C71CD79CC900E8DA98 /* AppDelegate.swift */,
-				7DFF91C91CD79CC900E8DA98 /* MasterViewController.swift */,
-				7DFF91CB1CD79CC900E8DA98 /* DetailViewController.swift */,
-				7DFF91CD1CD79CC900E8DA98 /* Main.storyboard */,
-				7DFF91D01CD79CC900E8DA98 /* Assets.xcassets */,
-				7DFF91D21CD79CC900E8DA98 /* LaunchScreen.storyboard */,
-				7DFF91D51CD79CC900E8DA98 /* Info.plist */,
 			);
 			path = "books-ios-app";
 			sourceTree = "<group>";
@@ -138,8 +176,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DBABC3D1CD889030099E68B /* Book.swift in Sources */,
 				7DFF91CC1CD79CC900E8DA98 /* DetailViewController.swift in Sources */,
 				7DFF91CA1CD79CC900E8DA98 /* MasterViewController.swift in Sources */,
+				7DBABC3F1CD889460099E68B /* Bookstore.swift in Sources */,
 				7DFF91C81CD79CC900E8DA98 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +328,7 @@
 				7DFF91DA1CD79CC900E8DA98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

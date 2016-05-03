@@ -21,7 +21,12 @@ class DetailViewController: UIViewController {
     }
 
     func configureView() {
-        
+        if let detail: AnyObject = self.detailItem {
+            let myBook = detail as! Book
+            titleLabel.text = myBook.title
+            authorLabel.text = myBook.author
+            descTextView.text = myBook.description
+        }
     }
 
     override func viewDidLoad() {

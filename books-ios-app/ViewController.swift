@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var myTable: UITableView!
     
     @IBAction func addNewBook(sender: AnyObject) {
+        
         let book: Book = NSEntityDescription.insertNewObjectForEntityForName(
             "Book",
             inManagedObjectContext: manageObjectContext
@@ -70,6 +71,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             NSLog("Error: %@", error)
         }
         return result
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            manageObjectContext.deleteObject(loadBooks()[indexPath.row] as! Book)
+            
+            do {
+                try manageObjectContext.save()
+            } catch let error as NSError {
+                NSLog("Error: %@", error)
+            }
+
+            
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
+        
+        tableView.reloadData()
     }
 
 }

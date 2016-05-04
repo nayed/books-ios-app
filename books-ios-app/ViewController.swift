@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddBookDelegate {
     
     var manageObjectContext: NSManagedObjectContext!
     var myBook: Book = Book()
@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func addNewBook(sender: AnyObject) {
         
-        let alert : UIAlertController = UIAlertController(title: "New Book", message: "Add a new book", preferredStyle: UIAlertControllerStyle.Alert)
+        /*let alert : UIAlertController = UIAlertController(title: "New Book", message: "Add a new book", preferredStyle: UIAlertControllerStyle.Alert)
         
         let saveAction : UIAlertAction = UIAlertAction(title: "Save", style: UIAlertActionStyle.Default) { (action: UIAlertAction!) -> Void in
             let textField : UITextField = alert.textFields![0] as UITextField
@@ -30,25 +30,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         alert.addAction(saveAction)
         //alert.addAction(cancelAction)
         
-        presentViewController(alert, animated: true, completion: nil)
+        presentViewController(alert, animated: true, completion: nil)*/
         
-        /*let book: Book = NSEntityDescription.insertNewObjectForEntityForName(
-            "Book",
-            inManagedObjectContext: manageObjectContext
-            ) as! Book
-        
-        book.title = "Book " + String(loadBooks().count)
-        
-        do {
-            try manageObjectContext!.save()
-        } catch let error as NSError {
-            NSLog("Error: %@", error)
-        }*/
-        
-        myTable.reloadData()
+//        let book: Book = NSEntityDescription.insertNewObjectForEntityForName(
+//            "Book",
+//            inManagedObjectContext: manageObjectContext
+//            ) as! Book
+//        
+//        book.title = "Book " + String(loadBooks().count)
+//        
+//        do {
+//            try manageObjectContext!.save()
+//        } catch let error as NSError {
+//            NSLog("Error: %@", error)
+//        }
+//        
+//        myTable.reloadData()
     }
     
-    private func saveBook(book newBook: String) {
+    /*private func saveBook(book newBook: String) {
         if manageObjectContext != nil {
             let entity = NSEntityDescription.entityForName("Book", inManagedObjectContext: manageObjectContext!)
             let book = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: manageObjectContext!) as! Book
@@ -59,8 +59,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             } catch let error as NSError {
                 NSLog("Error: %@", error)
             }
+            myTable.reloadData()
         }
+    }*/
+    
+    
+    func verifyUserInput(controller: AddBookViewController, title: String, price: Double, year: Int) {
+        if manageObjectContext != nil {
+            let entity = NSEntityDescription.entityForName("Book", inManagedObjectContext: manageObjectContext!)
+            let book = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: manageObjectContext!) as! Book
+            book.title = title
+            book.price = price
+            book.year = year
+            
+            do {
+                try manageObjectContext.save()
+            } catch let error as NSError {
+                NSLog("Error: %@", error)
+            }
+        }
+        myTable.reloadData()
+        controller.navigationController?.popViewControllerAnimated(true)
     }
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,6 +141,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         tableView.reloadData()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "AddBookSegue" {
+            let viewController = segue.destinationViewController as! AddBookViewController
+            //viewController.previousNumber = previousNumber
+            viewController.delegate = self
+        }
     }
 
 }

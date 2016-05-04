@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D1C68D71CDA272800828E12 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1C68D61CDA272800828E12 /* AddBookViewController.swift */; };
 		7DBABC4D1CD8CEFA0099E68B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBABC4C1CD8CEFA0099E68B /* AppDelegate.swift */; };
 		7DBABC4F1CD8CEFA0099E68B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBABC4E1CD8CEFA0099E68B /* ViewController.swift */; };
 		7DBABC521CD8CEFA0099E68B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DBABC501CD8CEFA0099E68B /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D1C68D61CDA272800828E12 /* AddBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		7DBABC491CD8CEFA0099E68B /* books-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "books-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DBABC4C1CD8CEFA0099E68B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DBABC4E1CD8CEFA0099E68B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				7DBABC4E1CD8CEFA0099E68B /* ViewController.swift */,
+				7D1C68D61CDA272800828E12 /* AddBookViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DBABC4F1CD8CEFA0099E68B /* ViewController.swift in Sources */,
+				7D1C68D71CDA272800828E12 /* AddBookViewController.swift in Sources */,
 				7DBABC4D1CD8CEFA0099E68B /* AppDelegate.swift in Sources */,
 				7DBABC6A1CD8D1A00099E68B /* Author+CoreDataProperties.swift in Sources */,
 				7DBABC681CD8D1A00099E68B /* Book+CoreDataProperties.swift in Sources */,

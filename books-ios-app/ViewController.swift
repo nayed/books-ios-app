@@ -12,13 +12,27 @@ import CoreData
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var manageObjectContext: NSManagedObjectContext!
-    
+    var myBook: Book = Book()
     @IBOutlet weak var addBook: UIBarButtonItem!
     @IBOutlet weak var myTable: UITableView!
     
     @IBAction func addNewBook(sender: AnyObject) {
         
-        let book: Book = NSEntityDescription.insertNewObjectForEntityForName(
+        let alert : UIAlertController = UIAlertController(title: "New Book", message: "Add a new book", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let saveAction : UIAlertAction = UIAlertAction(title: "Save", style: UIAlertActionStyle.Default) { (action: UIAlertAction!) -> Void in
+            let textField : UITextField = alert.textFields![0] as UITextField
+            self.saveBook(book: textField.text!)
+            self.myTable.reloadData()
+        }
+        
+        alert.addTextFieldWithConfigurationHandler { (textField: UITextField!) -> Void in }
+        alert.addAction(saveAction)
+        //alert.addAction(cancelAction)
+        
+        presentViewController(alert, animated: true, completion: nil)
+        
+        /*let book: Book = NSEntityDescription.insertNewObjectForEntityForName(
             "Book",
             inManagedObjectContext: manageObjectContext
             ) as! Book
@@ -29,9 +43,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             try manageObjectContext!.save()
         } catch let error as NSError {
             NSLog("Error: %@", error)
-        }
+        }*/
         
         myTable.reloadData()
+    }
+    
+    private func saveBook(book newBook: String) {
+        if manageObjectContext != nil {
+            let entity = NSEntityDescription.entityForName("Book", inManagedObjectContext: manageObjectContext!)
+            let book = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: manageObjectContext!) as! Book
+            book.title = newBook
+            
+            do {
+                try manageObjectContext.save()
+            } catch let error as NSError {
+                NSLog("Error: %@", error)
+            }
+        }
     }
     
     override func viewDidLoad() {

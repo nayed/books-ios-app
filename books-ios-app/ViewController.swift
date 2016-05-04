@@ -16,53 +16,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var addBook: UIBarButtonItem!
     @IBOutlet weak var myTable: UITableView!
     
-    @IBAction func addNewBook(sender: AnyObject) {
-        
-        /*let alert : UIAlertController = UIAlertController(title: "New Book", message: "Add a new book", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        let saveAction : UIAlertAction = UIAlertAction(title: "Save", style: UIAlertActionStyle.Default) { (action: UIAlertAction!) -> Void in
-            let textField : UITextField = alert.textFields![0] as UITextField
-            self.saveBook(book: textField.text!)
-            self.myTable.reloadData()
-        }
-        
-        alert.addTextFieldWithConfigurationHandler { (textField: UITextField!) -> Void in }
-        alert.addAction(saveAction)
-        //alert.addAction(cancelAction)
-        
-        presentViewController(alert, animated: true, completion: nil)*/
-        
-//        let book: Book = NSEntityDescription.insertNewObjectForEntityForName(
-//            "Book",
-//            inManagedObjectContext: manageObjectContext
-//            ) as! Book
-//        
-//        book.title = "Book " + String(loadBooks().count)
-//        
-//        do {
-//            try manageObjectContext!.save()
-//        } catch let error as NSError {
-//            NSLog("Error: %@", error)
-//        }
-//        
-//        myTable.reloadData()
-    }
-    
-    /*private func saveBook(book newBook: String) {
-        if manageObjectContext != nil {
-            let entity = NSEntityDescription.entityForName("Book", inManagedObjectContext: manageObjectContext!)
-            let book = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: manageObjectContext!) as! Book
-            book.title = newBook
-            
-            do {
-                try manageObjectContext.save()
-            } catch let error as NSError {
-                NSLog("Error: %@", error)
-            }
-            myTable.reloadData()
-        }
-    }*/
-    
     
     func verifyUserInput(controller: AddBookViewController, title: String, price: Double, year: Int) {
         if manageObjectContext != nil {
@@ -110,6 +63,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell?
         let book = loadBooks()[indexPath.row] as! Book
         cell?.textLabel!.text = book.title
+        cell?.detailTextLabel!.text = String(book.price!) + " €"
         return cell!
     }
     
